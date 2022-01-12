@@ -39,8 +39,8 @@ public class CustomerController {
 
 		Optional<Customer> customer = customerService.getById(id);
 		
-		if((customer.isEmpty())) {
-			throw new CustomerNotFound("tharun "+id+" not found");
+		if(!(customer.isPresent())) {
+			throw new CustomerNotFound("bhargav"+id+" not found");
 		}
 		return customer.get();
 	} 
