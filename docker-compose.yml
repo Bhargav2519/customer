@@ -2,7 +2,9 @@ version: "3.3"
 services:
   customer:
     container_name: customer-service
-    build: Dockerfile
+    build:
+      context: .
+      dockerfile: Dockerfile
     depends_on:
       - mysql
     restart: always
