@@ -1,0 +1,24 @@
+version: "3.3"
+services:
+  customer:
+    container_name: customer-service
+    build: customer-service/
+    depends_on:
+      - mysql
+    restart: always
+    network_mode: host
+    hostname: localhost
+    ports:
+      - 8080:8080
+
+  mysql:
+    image: mysql:latest
+    container_name: mysql
+    restart: always
+    hostname: localhost
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: 'Password'
+      MYSQL_PASSWORD: root
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
